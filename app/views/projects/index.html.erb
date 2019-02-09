@@ -1,30 +1,12 @@
-<h1>Moje projekty</h1>
+<h1>Projekty</h1>
+
+
+<h2>Moje projekty</h2>
 <%= link_to 'Dodaj nowy projekt', new_project_path, class: "btn btn-primary" %>
+<%= render 'index', projects: @projects %>
 
-
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>User</th>
-      <th>Actions</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @projects.each do |project| %>
-      <tr>
-        <td><%= project.name %></td>
-        <td><%= project.user.email %></td>
-        <td>
-          <%= link_to 'Show', project %>
-          <%= link_to 'Edit', edit_project_path(project) %>
-          <%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<h2>Przypisane</h2>
+<%= render 'index', projects: @projects_invited %>
 
 <br>
 

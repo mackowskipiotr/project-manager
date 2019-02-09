@@ -1,0 +1,25 @@
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Nazwa projektu</th>
+      <th>Użytkownik</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% projects.each do |project| %>
+      <tr>
+        <td><%= project.name %></td>
+        <td><%= project.user.email %></td>
+        <td>
+          <%= link_to 'Szczegóły', project, class: "btn btn-primary" %>
+          <%- if project.user == current_user %>
+          	<%= link_to 'Edycja', edit_project_path(project), class: "btn btn-primary" %>
+          	<%= link_to 'Usuń', project, class: "btn btn-primary", method: :delete, data: { confirm: 'Czy jesteś pewien?' } %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

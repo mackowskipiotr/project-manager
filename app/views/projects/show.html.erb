@@ -1,14 +1,15 @@
-<p id="notice"><%= notice %></p>
+<h1>Szczegóły pojektu</h1>
 
+<%= join_button %>
 <p>
-  <strong>Name:</strong>
+  <strong>Nazwa projektu:</strong>
   <%= @project.name %>
 </p>
 
 <p>
-  <strong>User:</strong>
+  <strong>Właściciel projektu:</strong>
   <%= @project.user.email %>
 </p>
 
-<%= link_to 'Edit', edit_project_path(@project) %> |
-<%= link_to 'Back', projects_path %>
+<%= link_to 'Edycja', edit_project_path(@project) %> |
+<%= link_to 'Powrót', projects_path %>

@@ -5,12 +5,14 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.json
   def index
-    @projects = Project.all
+    @projects = current_user.projects
+    @projects_invited = current_user.invited
   end
 
   # GET /projects/1
   # GET /projects/1.json
   def show
+    @is_invited = ProjectsUser.find_by(project_id: @project.id, user_id: current_user.id)
   end
 
   # GET /projects/new
@@ -30,7 +32,7 @@ class ProjectsController < ApplicationController
 
     respond_to do |format|
       if @project.save
-        format.html { redirect_to @project, notice: 'Project was successfully created.' }
+        format.html { redirect_to @project, notice: 'Projekt został stworzony.' }
         format.json { render :show, status: :created, location: @project }
       else
         format.html { render :new }
@@ -44,7 +46,7 @@ class ProjectsController < ApplicationController
   def update
     respond_to do |format|
       if @project.update(project_params)
-        format.html { redirect_to @project, notice: 'Project was successfully updated.' }
+        format.html { redirect_to @project, notice: 'Projekt został zaktualizowany.' }
         format.json { render :show, status: :ok, location: @project }
       else
         format.html { render :edit }
@@ -58,9 +60,32 @@ class ProjectsController < ApplicationController
   def destroy
     @project.destroy
     respond_to do |format|
-      format.html { redirect_to projects_url, notice: 'Project was successfully destroyed.' }
+      format.html { redirect_to projects_url, notice: 'Projekt został usunięty.' }
       format.json { head :no_content }
     end
+  end
+
+  def join
+    @project = Project.find(params[:project_id])
+    project_user = ProjectsUser.find_by(project_id: @project.id, user_id: current_user.id)
+
+    if !project_user.blank?
+      project_user.delete
+      redirect_to @project, notice: 'Zostałeś usunięty z projektu.' 
+    else
+      project_user = ProjectsUser.new({
+        project_id: @project.id,
+        user_id: current_user.id
+      })
+
+      if project_user.save
+        redirect_to @project, notice: 'Zostałeś dodany do projektu.' 
+      else
+        redirect_to @project, alert: 'Nie zostałeś dodany do projektu.' 
+      end
+    end
+
+   
   end
 
   private
