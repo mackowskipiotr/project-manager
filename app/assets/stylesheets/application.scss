@@ -1,2 +1,11 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+.navbar{
+	border-radius: 0;
+	margin-bottom: 0;
+}
+
+.alert{
+	border-radius: 0;
+}
