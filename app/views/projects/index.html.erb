@@ -1,8 +1,15 @@
 <h1>Projekty</h1>
+<hr>
+<div class="row">
+	<div class="col-md-6">
+		<h2>Moje projekty</h2>
+	</div>
+	<div class="col-md-6 text-right">
+		<%= link_to 'Dodaj nowy projekt', new_project_path, class: "btn btn-primary" %>
+	</div>
+</div>
 
 
-<h2>Moje projekty</h2>
-<%= link_to 'Dodaj nowy projekt', new_project_path, class: "btn btn-primary" %>
 <%= render 'index', projects: @projects %>
 
 <h2>Przypisane</h2>

@@ -1,25 +1,17 @@
 <h1>Szczegóły projektu</h1>
-
-<%= join_button %>
-<p>
-  <strong>Nazwa projektu:</strong>
-  <%= @project.name %>
-</p>
-
-<p>
-  <strong>Właściciel projektu:</strong>
-  <%= @project.user.email %>
-</p>
-
-<p>
-  <strong>Zaproś:</strong>
-  <%= text_field_tag :invite_path, @invite_path %>
-</p>
-
-<% if @is_invited || @project.user == current_user %>
-	<%= link_to 'Nowe zadanie', new_project_task_path(@project), class: "btn btn-primary" %>
-<% end %>
 <hr>
+<%= join_button %>
+<dl class="dl-horizontal">
+  <dt>Nazwa projektu:</dt>
+  <dd><%= @project.name %></dd>
+
+  <dt>Właściciel projektu:</dt>
+  <dd><%= @project.user.email %></dd>
+
+  <dt>Zaproś:</dt>
+  <dd><%= text_field_tag :invite_path, @invite_path %></dd>
+</dl>
+
 <%= render 'tasks/index', tasks: @project.tasks %>
 <hr>
 <% if @project.user == current_user %>

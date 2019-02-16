@@ -1,5 +1,7 @@
-<h1>New Task</h1>
+<div class="container form">
+	<h1>Nowe zadanie</h1>
 
-<%= render 'form' %>
-
-<%= link_to 'Powrót', @project, class: "btn btn-primary" %>
+	<%= render 'form', button: "Dodaj" %>
+	<hr>
+	<%= link_to 'Powrót', @project, class: "btn btn-primary" %>
+</div>

@@ -11,22 +11,24 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name, id: :task_name %>
+  <div class="form-group">
+    <%= form.label "Nazwa" %>
+    <%= form.text_field :name, id: :task_name, class:"form-control" %>
   </div>
 
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.collection_select :user_id, @project_users, :id, :email %>
+  <div class="form-group">
+    <%= form.label "Zadanie dla:" %>
+    <%= form.collection_select :user_id, @project_users, :id, :email, {}, {class:"form-control"} %>
   </div>
 
-  <div class="field">
-    <%= form.label :done %>
-    <%= form.check_box :done, id: :task_done %>
+  <div class="checkbox">
+    <label>
+      <%= form.check_box :done, id: :task_done %> 
+      <%= form.label "Zakończone" %>
+    </label>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="actions text-right">
+    <%= form.submit button, class: "btn btn-primary" %>
   </div>
 <% end %>

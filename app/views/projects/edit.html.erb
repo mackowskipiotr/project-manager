@@ -1,6 +1,8 @@
-<h1>Edycja pojektu</h1>
+<div class="container form">
+	<h1>Edycja projektu</h1>
 
-<%= render 'form', project: @project %>
-
-<%= link_to 'Szczegóły', @project %> |
-<%= link_to 'Powrót', projects_path, class: "btn btn-primary" %>
+	<%= render 'form', project: @project, button: "Edytuj" %>
+	<hr>
+	<%= link_to 'Szczegóły', @project, class: "btn btn-primary" %> |
+	<%= link_to 'Powrót', projects_path, class: "btn btn-primary" %>
+</div>

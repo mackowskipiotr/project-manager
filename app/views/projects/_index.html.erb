@@ -27,3 +27,6 @@
     <% end %>
   </tbody>
 </table>
+<% if projects.blank? %>
+  <%= render 'partials/empty_data' %>
+<% end %>

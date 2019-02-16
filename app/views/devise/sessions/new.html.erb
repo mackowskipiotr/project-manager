@@ -1,0 +1,21 @@
+<div class="container sign-in">
+  <h2>Zaloguj się</h2>
+
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <div class="form-group">
+      <%= f.label "Adres email" %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label "Hasło" %><br />
+      <%= f.password_field :password, autocomplete: "current-password", class:"form-control" %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "Zaloguj", class: "btn btn-primary" %>
+    </div>
+  <% end %>
+  <hr>
+  <%= render "devise/shared/links" %>
+</div>
