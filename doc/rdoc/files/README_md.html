@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>README.md</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/github.css" type="text/css" media="screen" />
+<script src="../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            README.md
+        </h1>
+        <ul class="files">
+            
+            <li>
+                README.md
+                
+            </li>
+            <li>Last modified: 2019-02-16 14:20:38 +0100</li>
+        </ul>
+    </div>
+
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<h1 id="label-System+do+zarz-C4-85dzania+zadaniami+i+projektami+-28Aplikacja+webowa-2C+zadanie+13-29">System do zarządzania zadaniami i projektami (Aplikacja webowa, zadanie 13)</h1>
+
+<h2 id="label-Technologia+projektowa-3A">Technologia projektowa:</h2>
+<ul><li>
+<p>Windows</p>
+</li><li>
+<p>Ruby on Rails</p>
+</li><li>
+<p>Mysql</p>
+</li><li>
+<p>Bootstrap</p>
+</li><li>
+<p>Devise - Biblioteka do autoryzacji użytkowników w ruby on rails.</p>
+</li><li>
+<p>sdoc - Biblioteka do generowania dokumentacji w ruby on rails.</p>
+</li><li>
+<p>Git</p>
+</li></ul>
+
+<h2 id="label-Funkcjonalno-C5-9Bci">Funkcjonalności</h2>
+<ul><li>
+<p>Użytkownicy  - Dodawanie</p>
+</li><li>
+<p>Sessja  * Logowanie  * Wylogowanie</p>
+</li><li>
+<p>Projekty  * Dodawanie  * Usuwanie  * Edycja  * Przypisywanie osób</p>
+</li><li>
+<p>Zadanie  * Dodawanie  * Usuwanie  * Edycja  * Przypisywanie osób  * Zmiana statusu</p>
+</li></ul>
+
+<h2 id="label-Lista+zada-C5-84+do+wykonania-3A">Lista zadań do wykonania:</h2>
+
+<h3 id="label-ETAP+I">ETAP I</h3>
+<ul><li>
+<p>Instalacja Ruby, Rails oraz gita.</p>
+</li><li>
+<p>Wygenerowanie nowego projektu RoR.</p>
+</li><li>
+<p>Dodanie niezbędnych bibliotek do pliku Gemfile (Devise, bootstrap)</p>
+</li><li>
+<p>Wszystkie biblioteki pobierane są z “<a href="https://rubygems.org">rubygems.org</a>/”</p>
+</li><li>
+<p>Instalacja dodanych bibliotek przez wywołanie komendy “$ bundle” w terminalu</p>
+</li></ul>
+
+<h3 id="label-ETAP+II">ETAP II</h3>
+<ul><li>
+<p>Zaimportowanie bootstrapa do plików javascript oraz scss</p>
+</li><li>
+<p>Instalacja devise (Wywołanie komend) $ rails generate devise:install $ rails generate devise <a href="../classes/User.html"><code>User</code></a> - Devise automatycznie doda ścieżkę, model użytkownika oraz migrację.</p>
+</li><li>
+<p>Ręczne przetestowanie dodawania/logowania/wylogowania użytkownika</p>
+</li></ul>
+
+<h3 id="label-ETAP+III">ETAP III</h3>
+<ul><li>
+<p>Wygenerowanie Modelu oraz migracji <a href="../classes/Project.html"><code>Project</code></a> $ rails generate model <a href="../classes/Project.html"><code>Project</code></a></p>
+</li><li>
+<p>Dodanie nowych kolumn do pliku z migracji: * t.string :name * t.references :user</p>
+</li><li>
+<p>Dodanie relacji jeden do wielu (użytkownik jest właścicielem wielu projektów).</p>
+</li><li>
+<p>Dodanie kontrolera projects_controller z akcjami (index, show, new, create, edit, update, destroy)</p>
+</li><li>
+<p>Dodanie widoków projects dla akcji (new, edit, index, show)</p>
+</li><li>
+<p>Ręczne przetestowanie dodawanie projektu przez użytkownika</p>
+</li></ul>
+
+<h3 id="label-ETAP+IV">ETAP IV</h3>
+<ul><li>
+<p>Dodanie template do aplikacji</p>
+</li><li>
+<p>Dodanie paska navbar</p>
+</li><li>
+<p>Dodanie wyglądu dla list z projektami oraz zadaniami.</p>
+</li></ul>
+
+<h3 id="label-ETAP+V">ETAP V</h3>
+<ul><li>
+<p>Dodanie tabeli wiele do wielu dla użytkownika oraz projektów (Użytkownik może należeć do wielu projektów).</p>
+</li><li>
+<p>Dodanie do projects_controller akcji (invite, leave)</p>
+</li><li>
+<p>Ręczne przetestowanie zapraszania użytkowników do projektu za pomocą linku</p>
+</li></ul>
+
+<h3 id="label-ETAP+VI">ETAP VI</h3>
+<ul><li>
+<p>Wygenerowanie Modelu oraz migracji <a href="../classes/Task.html"><code>Task</code></a> $ rails generate model <a href="../classes/Task.html"><code>Task</code></a></p>
+</li><li>
+<p>Dodanie nowych kolumn do pliku z migracji: * t.string :name * t.string :description * t.references :project * t.references :user * t.references :executor * t.boolean :done</p>
+</li><li>
+<p>Dodanie relacji jeden do wielu: użytkownik jest właścicielem zadania, użytkownik jest przypisany do zadania, zadanie jest przypisane do projektu</p>
+</li><li>
+<p>Dodanie kontrolera tasks_controller z akcjami (index, new, create, edit, update, destroy)</p>
+</li><li>
+<p>Dodanie widoków projects dla akcji (new, edit, index)</p>
+</li><li>
+<p>Dodanie do tasks_controller akcji (done)</p>
+</li><li>
+<p>Właściciel projektu może usuwać i kończyć zadania, właściciel zadania może kończyć i usuwać swoje zadania</p>
+</li><li>
+<p>Dodanie listy użytkowników do dodawania nowego zadania</p>
+</li><li>
+<p>Ręczne przetestowanie zapraszania użytkowników do projektu za pomocą linku</p>
+</li></ul>
+
+<h3 id="label-ETAP+VII">ETAP VII</h3>
+<ul><li>
+<p>Dodanie walidacji dla modeli</p>
+</li><li>
+<p>Dodanie do tabeli użytkownicy flagi isAdmin</p>
+</li><li>
+<p>Pierwszy użytkownik jako admin</p>
+</li><li>
+<p>Dodanie strony z wszystkimi użytkownikami</p>
+</li><li>
+<p>Wygenerowanie dokumentacji technicznej</p>
+</li></ul>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+    
+    
+    
+  
+</div>
+
+    </div>
+  </body>
+</html>
