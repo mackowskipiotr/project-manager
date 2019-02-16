@@ -1,11 +1,11 @@
-<h1>Tasks</h1>
+<h1>Zadania</h1>
 
 <table class="table table-hover">
   <thead>
     <tr>
       <th>Nazwa zadania</th>
       <th>Użytkownik</th>
-      <th>Zakończone</th>
+      <th>Status zadania</th>
       <th></th>
     </tr>
   </thead>
@@ -15,11 +15,11 @@
       <tr>
         <td><%= task.name %></td>
         <td><%= task.user.email %></td>
-        <td><%= task.done %></td>
+        <td><%= done_label(task) %></td>
         
         <td>
           <% if @project.user == current_user || task.user == current_user %>
-            <%= link_to 'Zakończ zadanie', project_task_done_path(@project, task), method: "patch", class: "btn btn-success" %>
+            <%= done_button(task) %>
             <%= link_to 'Edytuj', edit_project_task_path(@project, task), class: "btn btn-primary" %>
             <%= link_to 'Usuń', [@project,task], method: :delete, class: "btn btn-primary", data: { confirm: 'Czy jesteś pewien?' } %>
           <% end %>

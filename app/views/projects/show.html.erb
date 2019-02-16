@@ -17,12 +17,12 @@
 </p>
 
 <% if @is_invited || @project.user == current_user %>
-	<%= link_to 'Nowe zadanie', new_project_task_path(@project) %>
+	<%= link_to 'Nowe zadanie', new_project_task_path(@project), class: "btn btn-primary" %>
 <% end %>
 <hr>
 <%= render 'tasks/index', tasks: @project.tasks %>
 <hr>
 <% if @project.user == current_user %>
-	<%= link_to 'Edycja', edit_project_path(@project) %> |
+	<%= link_to 'Edycja', edit_project_path(@project), class: "btn btn-primary" %> |
 <% end %>
-<%= link_to 'Powrót', projects_path %>
+<%= link_to 'Powrót', projects_path, class: "btn btn-primary" %>
