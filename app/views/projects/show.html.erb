@@ -11,5 +11,9 @@
   <%= @project.user.email %>
 </p>
 
+<%= link_to 'Nowe zadanie', new_project_task_path(@project) %>
+<hr>
+<%= render 'tasks/index', tasks: @project.tasks %>
+<hr>
 <%= link_to 'Edycja', edit_project_path(@project) %> |
 <%= link_to 'Powrót', projects_path %>

@@ -1,0 +1,32 @@
+<h1>Tasks</h1>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Nazwa zadania</th>
+      <th>Użytkownik</th>
+      <th>Zakończone</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% tasks.each do |task| %>
+      <tr>
+        <td><%= task.name %></td>
+        <td><%= task.user.email %></td>
+        <td><%= task.done %></td>
+        
+        <td>
+          <%= link_to 'Zakończ zadanie', project_task_done_path(@project, task), method: "patch", class: "btn btn-success" %>
+          <%= link_to 'Edytuj', edit_project_task_path(@project, task), class: "btn btn-primary" %>
+          <%= link_to 'Usuń', [@project,task], method: :delete, class: "btn btn-primary", data: { confirm: 'Czy jesteś pewien?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+

@@ -3,6 +3,8 @@
     <tr>
       <th>Nazwa projektu</th>
       <th>Użytkownik</th>
+      <th>Przypisani</th>
+      <th>Zadania</th>
       <th></th>
     </tr>
   </thead>
@@ -12,6 +14,8 @@
       <tr>
         <td><%= project.name %></td>
         <td><%= project.user.email %></td>
+        <td><%= project.invitation.count %></td>
+        <td><%= project.tasks.count %></td>
         <td>
           <%= link_to 'Szczegóły', project, class: "btn btn-primary" %>
           <%- if project.user == current_user %>
