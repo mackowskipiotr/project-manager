@@ -1,0 +1,28 @@
+<h1>Użytkownicy</h1>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Email</th>
+      <th>Projekty</th>
+      <th>Przypisany do</th>
+      <th>Zadania</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.email %></td>
+        <td><%= user.projects.count %></td>
+        <td><%= user.invited.count %></td>
+        <td><%= user.tasks.count %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+
+
