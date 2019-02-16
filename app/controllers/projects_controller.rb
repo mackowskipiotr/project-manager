@@ -12,6 +12,7 @@ class ProjectsController < ApplicationController
   # GET /projects/1
   # GET /projects/1.json
   def show
+    @invite_path = "#{request.host_with_port}/projects/#{@project.id}"
     @is_invited = ProjectsUser.find_by(project_id: @project.id, user_id: current_user.id)
   end
 

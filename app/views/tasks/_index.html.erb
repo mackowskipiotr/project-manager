@@ -18,9 +18,11 @@
         <td><%= task.done %></td>
         
         <td>
-          <%= link_to 'Zakończ zadanie', project_task_done_path(@project, task), method: "patch", class: "btn btn-success" %>
-          <%= link_to 'Edytuj', edit_project_task_path(@project, task), class: "btn btn-primary" %>
-          <%= link_to 'Usuń', [@project,task], method: :delete, class: "btn btn-primary", data: { confirm: 'Czy jesteś pewien?' } %>
+          <% if @project.user == current_user || task.user == current_user %>
+            <%= link_to 'Zakończ zadanie', project_task_done_path(@project, task), method: "patch", class: "btn btn-success" %>
+            <%= link_to 'Edytuj', edit_project_task_path(@project, task), class: "btn btn-primary" %>
+            <%= link_to 'Usuń', [@project,task], method: :delete, class: "btn btn-primary", data: { confirm: 'Czy jesteś pewien?' } %>
+          <% end %>
         </td>
       </tr>
     <% end %>

@@ -1,4 +1,4 @@
-<h1>Szczegóły pojektu</h1>
+<h1>Szczegóły projektu</h1>
 
 <%= join_button %>
 <p>
@@ -11,9 +11,18 @@
   <%= @project.user.email %>
 </p>
 
-<%= link_to 'Nowe zadanie', new_project_task_path(@project) %>
+<p>
+  <strong>Zaproś:</strong>
+  <%= text_field_tag :invite_path, @invite_path %>
+</p>
+
+<% if @is_invited || @project.user == current_user %>
+	<%= link_to 'Nowe zadanie', new_project_task_path(@project) %>
+<% end %>
 <hr>
 <%= render 'tasks/index', tasks: @project.tasks %>
 <hr>
-<%= link_to 'Edycja', edit_project_path(@project) %> |
+<% if @project.user == current_user %>
+	<%= link_to 'Edycja', edit_project_path(@project) %> |
+<% end %>
 <%= link_to 'Powrót', projects_path %>

@@ -18,7 +18,7 @@
 
   <div class="field">
     <%= form.label :user_id %>
-    <%= form.text_field :user_id, id: :task_user_id %>
+    <%= form.collection_select :user_id, @project_users, :id, :email %>
   </div>
 
   <div class="field">
